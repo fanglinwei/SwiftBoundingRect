@@ -86,16 +86,16 @@ extension UILabel {
         
         //这里再次取段落信息，因为有可能属性字符串中就已经包含了段落信息。
         if #available(iOS 11.0, *) {
-            if let _style = attributedString.attribute(.paragraphStyle, at: 0, effectiveRange: nil) as? NSMutableParagraphStyle {
+            if let _style = text.attribute(.paragraphStyle, at: 0, effectiveRange: nil) as? NSMutableParagraphStyle {
                 context.firstLineHeadIndent = _style.firstLineHeadIndent
             }
             
             if context.shadowOffset == Attribute.automaticCalculateShadows ,
-                let shadow = attributedString.attribute(.shadow, at: 0, effectiveRange: nil) as? NSShadow {
+                let shadow = text.attribute(.shadow, at: 0, effectiveRange: nil) as? NSShadow {
                 context.shadowOffset = shadow.shadowOffset
             }
         }
-        return boundingRect(with: attributedString, size: size, context: context)
+        return boundingRect(with: text, size: size, context: context)
     }
 }
 
@@ -112,8 +112,7 @@ extension UILabel {
         if context.numberOfLines != 1 { drawingContext.setValue(true, forKey: "wrapsForTruncationMode") }
         
         //调整fitsSize的值, 这里的宽度调整为只要宽度小于等于0或者显示一行都不限制宽度，而高度则总是改为不限制高度。
-        var fitsSize = size
-        fitsSize.height = .greatestFiniteMagnitude
+        var fitsSize = CGSize(width: size.width, height: .greatestFiniteMagnitude)
         if fitsSize.width <= 0 || context.numberOfLines == 1 {
             fitsSize.width = .greatestFiniteMagnitude
         }

@@ -1,6 +1,6 @@
 //
 //  SwiftTest.swift
-//  CalcTextDemo
+//  SwiftBoundingRect
 //
 //  Created by 方林威 on 2020/8/1.
 //  Copyright © 2020 方林威. All rights reserved.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-func SwiftTestRun() {
+func SwiftTestLanel() {
     print("玩命计算中....")
     let simpleTextUITimer = PerformanceTimer()
     let simpleTextNOUITimer = PerformanceTimer()

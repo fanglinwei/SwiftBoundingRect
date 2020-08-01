@@ -1,6 +1,6 @@
 //
 //  Random.swift
-//  CalcTextDemo
+//  SwiftBoundingRect
 //
 //  Created by 方林威 on 2020/8/1.
 //  Copyright © 2020 方林威. All rights reserved.
@@ -18,6 +18,21 @@ extension UILabel {
         label.lineBreakMode = .random
         label.font = .random
         return label
+    }
+}
+
+extension UITextView {
+    
+    static func random(of text: String? = nil) -> UITextView {
+        let textView = UITextView()
+        text.map { textView.text = $0 }
+        textView.font = .random
+        textView.textAlignment = .random
+        textView.textContainer.lineBreakMode = .random
+        textView.textContainer.maximumNumberOfLines = .random(in: 0 ... 100)
+        textView.textContainer.lineFragmentPadding = .random(in: 0 ... 100)
+//        textView.textContainerInset
+        return textView
     }
 }
 
