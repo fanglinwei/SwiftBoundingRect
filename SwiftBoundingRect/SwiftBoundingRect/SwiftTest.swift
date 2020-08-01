@@ -8,7 +8,7 @@
 
 import UIKit
 
-func SwiftTestLanel() {
+func SwiftTestLabel() {
     print("玩命计算中....")
     let simpleTextUITimer = PerformanceTimer()
     let simpleTextNOUITimer = PerformanceTimer()

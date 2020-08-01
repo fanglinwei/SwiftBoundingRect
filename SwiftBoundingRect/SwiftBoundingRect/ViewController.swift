@@ -19,11 +19,11 @@ class ViewController: UIViewController {
         // label 测试
 //        labelTest()
         // 大量测试UILabel
-//        SwiftTestLanel()
+//        SwiftTestLabel()
         
         textViewTest()
         // 大量测试UITextView
-//        SwiftTestLanel()
+//        SwiftTestLabel()
     }
     
     func textViewTest() {
