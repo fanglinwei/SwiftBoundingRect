@@ -13,7 +13,6 @@
 		280A81D524D54256001B7592 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 280A81D324D54256001B7592 /* Main.storyboard */; };
 		280A81D724D54256001B7592 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 280A81D624D54256001B7592 /* Assets.xcassets */; };
 		280A81DA24D54256001B7592 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 280A81D824D54256001B7592 /* LaunchScreen.storyboard */; };
-		280A81E824D54262001B7592 /* TextExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280A81E224D54262001B7592 /* TextExtension.swift */; };
 		280A81E924D54262001B7592 /* NSAttributedStringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280A81E324D54262001B7592 /* NSAttributedStringExtension.swift */; };
 		280A81EA24D54262001B7592 /* RandomExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280A81E424D54262001B7592 /* RandomExtension.swift */; };
 		280A81EB24D54262001B7592 /* PerformanceTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280A81E624D54262001B7592 /* PerformanceTimer.swift */; };
@@ -31,7 +30,6 @@
 		280A81D624D54256001B7592 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		280A81D924D54256001B7592 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		280A81DB24D54256001B7592 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		280A81E224D54262001B7592 /* TextExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextExtension.swift; sourceTree = "<group>"; };
 		280A81E324D54262001B7592 /* NSAttributedStringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSAttributedStringExtension.swift; sourceTree = "<group>"; };
 		280A81E424D54262001B7592 /* RandomExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomExtension.swift; sourceTree = "<group>"; };
 		280A81E624D54262001B7592 /* PerformanceTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerformanceTimer.swift; sourceTree = "<group>"; };
@@ -89,7 +87,6 @@
 		280A81E124D54262001B7592 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				280A81E224D54262001B7592 /* TextExtension.swift */,
 				280A81E324D54262001B7592 /* NSAttributedStringExtension.swift */,
 				280A81E424D54262001B7592 /* RandomExtension.swift */,
 			);
@@ -181,7 +178,6 @@
 				280A81EC24D54262001B7592 /* BoundingRect+UILabel.swift in Sources */,
 				280A81EB24D54262001B7592 /* PerformanceTimer.swift in Sources */,
 				280A81E924D54262001B7592 /* NSAttributedStringExtension.swift in Sources */,
-				280A81E824D54262001B7592 /* TextExtension.swift in Sources */,
 				280A81D224D54256001B7592 /* ViewController.swift in Sources */,
 				280A81CE24D54256001B7592 /* AppDelegate.swift in Sources */,
 				280A81D024D54256001B7592 /* SceneDelegate.swift in Sources */,
@@ -329,6 +325,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5KA67R3283;
 				INFOPLIST_FILE = SwiftBoundingRect/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -346,6 +343,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5KA67R3283;
 				INFOPLIST_FILE = SwiftBoundingRect/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

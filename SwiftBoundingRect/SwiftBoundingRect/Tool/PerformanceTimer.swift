@@ -14,6 +14,11 @@ class PerformanceTimer {
     private(set) var records: [CFTimeInterval] = []
     
     private var start: CFTimeInterval = 0
+    let name: String
+    
+    init(_ name: String = "") {
+        self.name = name
+    }
     
     func reset() {
         records = []
@@ -87,4 +92,16 @@ extension PerformanceTimer {
     
     /// 平均耗时
     var average: CFTimeInterval { total / Double(count) }
+}
+
+extension PerformanceTimer: CustomStringConvertible {
+    
+    var description: String {
+        String(format:
+            """
+            测试项目: ******\(name)******
+            次数: \(count)
+            总耗时(毫秒):%.3f, 平均耗时:%.3f
+            """, total, average)
+    }
 }
