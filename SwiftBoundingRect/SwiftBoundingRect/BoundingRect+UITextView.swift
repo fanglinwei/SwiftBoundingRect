@@ -102,10 +102,9 @@ extension UITextView {
     fileprivate static func boundingRect(with attributedString: NSAttributedString, size: CGSize, context: Attribute.Context) -> CGSize {
         
         //调整fitsSize的值, 这里的宽度调整为只要宽度小于等于0或者显示一行都不限制宽度，而高度则总是改为不限制高度。
-        var fitsSize = CGSize(width: size.width, height: .greatestFiniteMagnitude)
-        if fitsSize.width <= 0 || context.maximumNumberOfLines == 1 {
-            fitsSize.width = .greatestFiniteMagnitude
-        }
+        var fitsSize = CGSize(width: max(0, size.width - context.textContainerInset.horizontal),
+                              height: .greatestFiniteMagnitude)
+        fitsSize.width = fitsSize.width.isZero ? .greatestFiniteMagnitude : abs(fitsSize.width)
         
         let textContainer = NSTextContainer(size: fitsSize)
         textContainer.lineBreakMode = context.lineBreakMode
@@ -121,8 +120,6 @@ extension UITextView {
         layoutManager.ensureLayout(for: textContainer)
         //计算属性字符串的bounds值。
         var rect = layoutManager.usedRect(for: textContainer)
-        rect.size.width += (context.textContainerInset.left + context.textContainerInset.right)
-        rect.size.height += (context.textContainerInset.top + context.textContainerInset.bottom)
         
         //取fitsSize和rect中的最小宽度值。
         rect.size.width =  min(fitsSize.width, rect.size.width)
@@ -131,6 +128,9 @@ extension UITextView {
         let scale = UIScreen.main.scale
         rect.size.width = (rect.size.width * scale).rounded(.up) / scale
         rect.size.height = (rect.size.height * scale).rounded(.up) / scale
+        
+        rect.size.width += context.textContainerInset.horizontal
+        rect.size.height += context.textContainerInset.vertical
         return rect.size
     }
 }
@@ -145,4 +145,12 @@ extension NSAttributedString {
         //对于属性字符串总是加上默认的字体和段落信息。
         self.init(string: string, attributes: [.font: font, .paragraphStyle: style])
     }
+}
+
+
+extension UIEdgeInsets {
+    
+    var vertical: CGFloat { top + bottom }
+
+    var horizontal: CGFloat { left + right }
 }

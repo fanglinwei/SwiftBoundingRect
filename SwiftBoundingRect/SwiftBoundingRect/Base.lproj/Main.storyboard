@@ -22,7 +22,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TJ3-xN-KmO">
-                                <rect key="frame" x="0.0" y="348" width="414" height="200"/>
+                                <rect key="frame" x="0.0" y="696" width="414" height="200"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="vuE-aN-YB9"/>
@@ -37,9 +37,9 @@
                         <constraints>
                             <constraint firstItem="S0G-A6-kOz" firstAttribute="top" secondItem="Zkd-mW-Guc" secondAttribute="top" constant="50" id="2Q3-4i-dUA"/>
                             <constraint firstItem="Zkd-mW-Guc" firstAttribute="trailing" secondItem="S0G-A6-kOz" secondAttribute="trailing" id="38q-fd-tpJ"/>
-                            <constraint firstItem="TJ3-xN-KmO" firstAttribute="centerY" secondItem="MXi-g7-Ttu" secondAttribute="centerY" id="KWs-RC-ctp"/>
                             <constraint firstItem="TJ3-xN-KmO" firstAttribute="leading" secondItem="Zkd-mW-Guc" secondAttribute="leading" id="aWM-qr-4dk"/>
                             <constraint firstItem="Zkd-mW-Guc" firstAttribute="trailing" secondItem="TJ3-xN-KmO" secondAttribute="trailing" id="eHx-Z8-aUF"/>
+                            <constraint firstAttribute="bottom" secondItem="TJ3-xN-KmO" secondAttribute="bottom" id="fDA-Mg-Naj"/>
                             <constraint firstItem="S0G-A6-kOz" firstAttribute="leading" secondItem="Zkd-mW-Guc" secondAttribute="leading" id="fpD-22-0Je"/>
                             <constraint firstItem="S0G-A6-kOz" firstAttribute="centerX" secondItem="MXi-g7-Ttu" secondAttribute="centerX" id="rID-R2-ply"/>
                         </constraints>

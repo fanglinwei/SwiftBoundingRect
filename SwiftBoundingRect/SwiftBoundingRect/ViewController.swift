@@ -27,39 +27,28 @@ class ViewController: UIViewController {
     }
     
     func textViewTest() {
-        let text = "文本Swift😊 文本Swift😊 文本Swift😊 文本Swift😊 文本Swift😊 文本Swift😊 文本Swift😊 文本Swift😊 文本Swift😊 文本Swift😊 文本Swift😊 文本Swift😊 文本Swift😊 文本Swift😊 文本Swift😊 文本Swift😊 文本Swift😊 文本Swift😊 文本Swift😊 文本Swift😊 文本Swift😊 文本Swift😊 文本Swift😊 文本Swift😊 文本Swift😊 文本Swift😊 文本Swift😊 文本Swift😊 文本Swift😊 "
+        let text = "文本Swift😊 文本313123234125432564ylv3-o6iuby-60mu5m36nu6v2590mc402u51c-0nv`5c12fqm09c-4u4-m0cm-043uc0p4um-0cu v-mc0vt-omi4-vmc-2cu30=9`i=-!@#!@#!@#$%@$#^%&$*%(&^)*&_(*&*^&%^$%#$#@!$%@^#&$*%^$%$#@!Swift😊 文本Swift😊 文本Swift😊 文本Swift😊 文本Swift😊 文本Swift😊 文本Swift😊 文本Swift😊 文本Swift😊 文本Swift😊 文本Swift😊 文本Swift😊 文本Swift😊 文本Swift😊 文本Swift😊 文本Swift😊 文本Swift😊 文本Swift😊 文本Swift😊 文本Swift😊 文本Swift😊 文本Swift😊 文本Swift😊 文本Swift😊 文本Swift😊 文本Swift😊 文本Swift😊 文本Swift😊 "
         
-        let shadow = NSShadow()
-        shadow.shadowOffset = CGSize(width: 0, height: 20)
-        shadow.shadowColor = UIColor.red
-        
-        let attributedString = NSAttributedString(string: text, attributes: [ .shadow: shadow])
-        
-        let shadow1 = NSShadow()
-        shadow1.shadowOffset = CGSize(width: 0, height: 10)
-        shadow1.shadowColor = UIColor.red
-        
-        let shadow2 = NSShadow()
-        shadow2.shadowOffset = CGSize(width: 0, height: 10)
-        shadow2.shadowColor = UIColor.blue
-        
-        let shadow3 = NSShadow()
-        shadow3.shadowOffset = CGSize(width: 0, height: 5)
-        shadow2.shadowColor = UIColor.yellow
-        
+        let attributedString = NSAttributedString(string: text)
+        view.layoutIfNeeded()
+        textView.textContainerInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 10)
+        textView.textContainer.lineBreakMode = .byCharWrapping
         textView.attributedText = attributedString
-                                .applying(attributes: [.font: UIFont.systemFont(ofSize: 20)], toOccurrencesOf: "Swift")
-                                .applying(attributes: [.shadow: shadow1], toRangesMatching: "文字")
-                                .applying(attributes: [.shadow: shadow2], toRangesMatching: "swift")
-        
+        textView.font = .systemFont(ofSize: 17)
         textView.textAlignment = .right
         view.layoutIfNeeded()
+        let fitsSize = CGSize(width: 375, height: 200.0)
         print(textView.bounds.size)
-        print(textView.sizeThatFits(CGSize(width: 375, height: 200.0)))
+        print("sizeThatFits: \(textView.sizeThatFits(fitsSize))")
         let size = UITextView.boundingRect(
             textView.attributedText!,
-            size: CGSize(width: 375, height: 200),
-            attributes: .font(.systemFont(ofSize: 17))
+            size: fitsSize,
+            attributes:
+            .font(.systemFont(ofSize: 17)),
+            .textContainerInset(textView.textContainerInset),
+            .lineFragmentPadding(textView.textContainer.lineFragmentPadding),
+            .maximumNumberOfLines(textView.textContainer.maximumNumberOfLines),
+            .lineBreakMode(textView.textContainer.lineBreakMode)
         )
         print(size)
     }
