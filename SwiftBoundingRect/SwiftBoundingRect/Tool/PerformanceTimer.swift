@@ -100,7 +100,7 @@ extension PerformanceTimer: CustomStringConvertible {
         String(format:
             """
             测试项目: ******\(name)******
-            次数: \(count)
+            测试次数: \(count)
             总耗时(毫秒):%.3f, 平均耗时:%.3f
             """, total, average)
     }
