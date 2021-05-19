@@ -100,13 +100,13 @@ func SwiftTestLabel() {
 }
 
 func SwiftTestTextView() {
-    print("玩命测试UITextView中....")
-    let simpleTextUITimer = PerformanceTimer()
-    let simpleTextNOUITimer = PerformanceTimer()
+    print("玩命测试TextView中....")
+    let simpleTextUITimer = PerformanceTimer("简单文本计算UITextView")
+    let simpleTextNOUITimer = PerformanceTimer("简单文本计算非UITextView")
     
-    let attributedTextUITimer = PerformanceTimer()
-    let attributedTextNOUITimer = PerformanceTimer()
-    
+    let attributedTextUITimer = PerformanceTimer("富文本计算UITextView")
+    let attributedTextNOUITimer = PerformanceTimer("富文本计算非UITextView")
+    /// 5000次测试计算
     for _ in 0 ..< 5000  {
         let text = String.random(ofLength: Int.random(in: 1 ... 100))
         let fitSize =  CGSize(width: .random(in: 0 ... 1000),
@@ -154,7 +154,7 @@ func SwiftTestTextView() {
             
             let sz1 = attributedTextUITimer { label.sizeThatFits(fitSize) }
             
-            let sz2 = simpleTextNOUITimer {
+            let sz2 = attributedTextNOUITimer {
                 UILabel.boundingRect(
                     attributedText,
                     size: fitSize,
@@ -167,13 +167,12 @@ func SwiftTestTextView() {
                     .shadowOffset(.zero)
                 )
             }
-            assert(sz1 == sz2, "富文本计算出大小不一致")
+            assert(sz1 == sz2, "富文本计算出大小不一致: sz1: \(sz1), sz2: \(sz2)")
         }
     }
     
-    print(String(format: "简单文本计算UILabel总耗时(毫秒):%.3f, 平均耗时:%.3f", simpleTextUITimer.total, simpleTextUITimer.average))
-    print(String(format: "简单文本计算非UILabel总耗时(毫秒):%.3f, 平均耗时:%.3f", simpleTextNOUITimer.total, simpleTextNOUITimer.average))
-    
-    print(String(format: "富文本计算UILabel总耗时(毫秒):%.3f, 平均耗时:%.3f", attributedTextUITimer.total, attributedTextUITimer.average))
-    print(String(format: "富文本计算非UILabel总耗时(毫秒):%.3f, 平均耗时:%.3f", attributedTextNOUITimer.total, attributedTextNOUITimer.average))
+    print(simpleTextUITimer)
+    print(simpleTextNOUITimer)
+    print(attributedTextUITimer)
+    print(attributedTextNOUITimer)
 }
